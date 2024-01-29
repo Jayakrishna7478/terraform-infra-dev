@@ -59,19 +59,19 @@ resource "aws_cloudfront_distribution" "daws76s" {
   }
 }
 
-# module "records" {
-#   source  = "terraform-aws-modules/route53/aws//modules/records"
+module "records" {
+  source  = "terraform-aws-modules/route53/aws//modules/records"
 
-#   zone_name = var.zone_name
+  zone_name = var.zone_name
 
-#   records = [
-#     {
-#       name    = "web-cdn"
-#       type    = "A"
-#       alias   = {
-#         name    = aws_cloudfront_distribution.kubernete.domain_name
-#         zone_id = aws_cloudfront_distribution.kubernete.hosted_zone_id
-#       }
-#     }
-#   ]
-# }
+  records = [
+    {
+      name    = "web-cdn"
+      type    = "A"
+      alias   = {
+        name    = aws_cloudfront_distribution.kubernete.domain_name
+        zone_id = aws_cloudfront_distribution.kubernete.hosted_zone_id
+      }
+    }
+  ]
+}
