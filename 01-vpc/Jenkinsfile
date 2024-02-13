@@ -106,6 +106,7 @@ pipeline {
         stage('init') { 
             steps {
                 sh """
+                    -chdir
                     cd 01-vpc
                     terraform init reconfigure
                 """
