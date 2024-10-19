@@ -150,7 +150,7 @@ resource "aws_lb_listener_rule" "catalogue" {
 
   condition {
     host_header {
-      values = ["${var.tags.Component}.app-${var.environment}"]
+      values = ["${var.tags.Component}.app-${var.environment}.${var.zone_name}"]
     }
   }
 }
