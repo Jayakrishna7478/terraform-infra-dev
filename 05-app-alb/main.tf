@@ -29,20 +29,20 @@ resource "aws_lb_listener" "http" {
   }
 }
 
-# route 53 records
-module "records" {
-  source  = "terraform-aws-modules/route53/aws//modules/records"
+# # route 53 records
+# module "records" {
+#   source  = "terraform-aws-modules/route53/aws//modules/records"
 
-  zone_name = var.zone_name
+#   zone_name = var.zone_name
 
-  records = [
-    {
-      name    = "*.app-${var.environment}"
-      type    = "A"
-      alias   = {
-        name    = aws_lb.app_alb.dns_name
-        zone_id = aws_lb.app_alb.zone_id
-      }
-    }
-  ]
-}
+#   records = [
+#     {
+#       name    = "*.app-${var.environment}"
+#       type    = "A"
+#       alias   = {
+#         name    = aws_lb.app_alb.dns_name
+#         zone_id = aws_lb.app_alb.zone_id
+#       }
+#     }
+#   ]
+# }
