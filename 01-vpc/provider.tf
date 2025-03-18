@@ -7,9 +7,10 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "aws-state-dev"
+    bucket = "aws-state-dev-1"
      key    = "vpc"
      region = "us-east-1"
+     #for state locking, LockID
      dynamodb_table = "aws-locking-dev"
   }
 }
